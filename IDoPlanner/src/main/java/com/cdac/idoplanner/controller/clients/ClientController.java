@@ -1,4 +1,4 @@
-package com.cdac.IDoPlanner.Controller;
+package com.cdac.idoplanner.controller.clients;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cdac.IDoPlanner.DTO.ClientDTO;
-import com.cdac.IDoPlanner.Service.ClientService;
+import com.cdac.idoplanner.service.clients.ClientService;
 
 @RestController
 @RequestMapping("/clients")

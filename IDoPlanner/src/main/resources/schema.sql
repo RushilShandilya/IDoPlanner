@@ -25,3 +25,18 @@ CREATE TABLE IF NOT EXISTS Bookings(
 	status VARCHAR(20),
 	FOREIGN KEY (clientId) references Clients(clientId)
 );
+
+CREATE TABLE IF NOT EXISTS Services(
+    serviceId INT PRIMARY KEY AUTO_INCREMENT,
+    serviceName VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS ServiceProviders(
+    spId INT PRIMARY KEY AUTO_INCREMENT,
+    spName VARCHAR(20),
+    spEmail VARCHAR(20),
+    spNumber INT,
+    serviceId INT,
+
+    FOREIGN KEY(serviceId) references Services(serviceId)
+);
