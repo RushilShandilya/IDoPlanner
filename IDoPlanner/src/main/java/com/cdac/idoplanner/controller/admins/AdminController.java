@@ -1,5 +1,6 @@
 package com.cdac.idoplanner.controller.admins;
 
+import com.cdac.idoplanner.dto.AdminDTO;
 import com.cdac.idoplanner.entities.Admin;
 import com.cdac.idoplanner.service.admins.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,13 @@ public class AdminController {
     AdminService adminService;
 
     @PostMapping("/admin/createAdmin")
-    public void createAdmin(@RequestBody Admin admin){
+    public void createAdmin(@RequestBody AdminDTO adminDTO){
+        Admin admin = new Admin();
+
+        admin.setEmail(adminDTO.getEmail());
+        admin.setName(adminDTO.getName());
+        admin.setPasswordHash(adminDTO.getPassword());
+
         adminService.createAdmin(admin);
     }
 

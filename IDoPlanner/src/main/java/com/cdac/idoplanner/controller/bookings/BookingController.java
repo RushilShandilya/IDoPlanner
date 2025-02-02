@@ -9,8 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/bookings")  // All booking-related endpoints will be under this path
-public class BookingController {
-
+public class BookingController{
     @Autowired
     private BookingService bookingService;
 
