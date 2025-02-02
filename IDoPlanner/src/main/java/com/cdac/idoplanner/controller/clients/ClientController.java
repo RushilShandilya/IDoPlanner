@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cdac.IDoPlanner.DTO.ClientDTO;
+import com.cdac.idoplanner.dto.ClientDTO;
 import com.cdac.idoplanner.service.clients.ClientService;
 
 @RestController

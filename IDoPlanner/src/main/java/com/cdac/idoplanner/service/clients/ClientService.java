@@ -2,7 +2,7 @@ package com.cdac.idoplanner.service.clients;
 
 import java.util.List;
 
-import com.cdac.IDoPlanner.DTO.ClientDTO;
+import com.cdac.idoplanner.dto.ClientDTO;
 
 	public interface ClientService {
 

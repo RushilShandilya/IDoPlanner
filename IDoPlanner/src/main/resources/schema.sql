@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS IDoPlanner;
+
 CREATE DATABASE IF NOT EXISTS IDoPlanner;
 
 USE IDoPlanner;
@@ -17,18 +19,9 @@ CREATE TABLE IF NOT EXISTS Clients(
 	passwordHash VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS Bookings(
-	bookingId INT PRIMARY KEY AUTO_INCREMENT,
-	clientId INT,
-	serviceProviderId VARCHAR(50),
-	bookingDate DATETIME,
-	status VARCHAR(20),
-	FOREIGN KEY (clientId) references Clients(clientId)
-);
-
 CREATE TABLE IF NOT EXISTS Services(
-    serviceId INT PRIMARY KEY AUTO_INCREMENT,
-    serviceName VARCHAR(20) NOT NULL
+     serviceId INT PRIMARY KEY AUTO_INCREMENT,
+     serviceName VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS ServiceProviders(
@@ -39,4 +32,14 @@ CREATE TABLE IF NOT EXISTS ServiceProviders(
     serviceId INT,
 
     FOREIGN KEY(serviceId) references Services(serviceId)
+);
+
+CREATE TABLE IF NOT EXISTS Bookings(
+	bookingId INT PRIMARY KEY AUTO_INCREMENT,
+	clientId INT,
+	spId INT,
+	bookingDate DATETIME,
+	status VARCHAR(20),
+	FOREIGN KEY (clientId) references Clients(clientId),
+    FOREIGN KEY (spId) references ServiceProviders(spId)
 );
