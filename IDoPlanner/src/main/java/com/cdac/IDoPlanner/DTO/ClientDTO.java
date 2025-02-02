@@ -6,12 +6,22 @@ public class ClientDTO {
     private String email;
     private Long phoneNumber;
     private String passwordHash;
+    
+    public ClientDTO( String name, String email, Long phoneNumber, String passwordHash) {
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.passwordHash = passwordHash;
+    }
+    public ClientDTO( String name, String email, Long phoneNumber) {
+       this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
 	public Integer getClientId() {
 		return clientId;
 	}
-	public void setClientId(Integer clientId) {
-		this.clientId = clientId;
-	}
+	
 	public String getName() {
 		return name;
 	}
