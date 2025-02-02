@@ -1,7 +1,6 @@
-package com.cdac.idoplanner.controller.admins;
+package com.cdac.idoplanner.controller.bookings;
 
 import com.cdac.idoplanner.entities.Booking;
-import com.cdac.idoplanner.dto.BookingDTO;
 import com.cdac.idoplanner.service.admins.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin/booking")  // All booking-related endpoints will be under this path
+@RequestMapping("/bookings")  // All booking-related endpoints will be under this path
 public class BookingController {
 
     @Autowired
@@ -17,10 +16,7 @@ public class BookingController {
 
     // Create a new booking
     @PostMapping("/createBooking")
-    public void createBooking(@RequestBody BookingDTO bookingDTO) {
-        Booking booking = new Booking();
-        
-        
+    public void createBooking(@RequestBody Booking booking) {
         bookingService.createBooking(booking);
     }
 
@@ -30,15 +26,11 @@ public class BookingController {
         return bookingService.getBooking(bookingId);
     }
 
-    
-
     // Get all bookings
     @GetMapping("/getAllBookings")
     public List<Booking> getAllBookings() {
         return bookingService.getAllBookings();
     }
-
-    
 
     // Delete a booking
     @DeleteMapping("/deleteBooking")
