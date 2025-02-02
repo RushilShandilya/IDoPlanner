@@ -1,4 +1,4 @@
-package com.cdac.IDoPlanner.DTO;
+package com.cdac.idoplanner.dto;
 
 public class ClientDTO {
 	private Integer clientId;
