@@ -8,5 +8,4 @@ public class IDoPlannerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(IDoPlannerApplication.class, args);
 	}
-
 }
