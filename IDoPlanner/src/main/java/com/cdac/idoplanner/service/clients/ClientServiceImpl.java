@@ -7,9 +7,9 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cdac.IDoPlanner.DTO.ClientDTO;
-import com.cdac.IDoPlanner.Entity.Client;
-import com.cdac.IDoPlanner.Repository.ClientRepository;
+import com.cdac.idoplanner.dto.ClientDTO;
+import com.cdac.idoplanner.entities.Client;
+import com.cdac.idoplanner.repositories.ClientRepository;
 @Service
 public class ClientServiceImpl implements ClientService{
     @Autowired

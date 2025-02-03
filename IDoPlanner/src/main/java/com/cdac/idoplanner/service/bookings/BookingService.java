@@ -1,4 +1,4 @@
-package com.cdac.idoplanner.service.admins;
+package com.cdac.idoplanner.service.bookings;
 
 import com.cdac.idoplanner.entities.Booking;
 import com.cdac.idoplanner.repositories.BookingRepository;

@@ -2,7 +2,7 @@ package com.cdac.idoplanner.controller.bookings;
 
 import com.cdac.idoplanner.dto.BookingDTO;
 import com.cdac.idoplanner.entities.Booking;
-import com.cdac.idoplanner.service.admins.BookingService;
+import com.cdac.idoplanner.service.bookings.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
