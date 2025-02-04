@@ -5,19 +5,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @Table(name = "Clients")
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
 public class Client {
 
     @Id
@@ -25,17 +15,28 @@ public class Client {
     @Column(name = "clientId")
     private Integer clientId;
 
-    @Column(name = "name", length = 100)
+    @Column(name = "name", length = 100 , nullable=false)
     private String name;
 
-    @Column(name = "email", length = 100, unique = true)
+    @Column(name = "email", length = 100, unique = true , nullable = false)
     private String email;
 
-    @Column(name = "phoneNumber")
+    @Column(name = "phoneNumber",unique=true , nullable = false)
     private Long phoneNumber;
 
-    @Column(name = "passwordHash", length = 255)
+    @Column(name = "passwordHash", length = 255 , nullable=false)
     private String passwordHash;
+
+	public Client(){
+
+	}
+
+	public Client(String name, String email, Long phoneNumber, String passwordHash) {
+		this.name = name;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.passwordHash = passwordHash;
+	}
 
 	public Integer getClientId() {
 		return clientId;

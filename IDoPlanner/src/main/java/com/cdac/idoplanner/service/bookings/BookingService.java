@@ -14,9 +14,7 @@ public class BookingService {
     private BookingRepository bookingRepository;
 
     // Create a new booking
-    public void createBooking(Booking booking) {
-        bookingRepository.save(booking);
-    }
+    public void createBooking(Booking booking) {bookingRepository.save(booking);}
 
     // Get a booking by its ID
     public Booking getBooking(Integer bookingId) {

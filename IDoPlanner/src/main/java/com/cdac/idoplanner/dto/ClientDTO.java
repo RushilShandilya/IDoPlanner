@@ -1,7 +1,6 @@
 package com.cdac.idoplanner.dto;
 
 public class ClientDTO {
-	private Integer clientId;
 	private String name;
     private String email;
     private Long phoneNumber;
@@ -18,9 +17,6 @@ public class ClientDTO {
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
-	public Integer getClientId() {
-		return clientId;
-	}
 	
 	public String getName() {
 		return name;
@@ -48,7 +44,7 @@ public class ClientDTO {
 	}
 	@Override
 	public String toString() {
-		return "ClientDTO [clientId=" + clientId + ", name=" + name + ", email=" + email + ", phoneNumber="
+		return "ClientDTO [name=" + name + ", email=" + email + ", phoneNumber="
 				+ phoneNumber + ", passwordHash=" + passwordHash + "]";
 	}
     

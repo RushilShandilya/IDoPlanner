@@ -41,7 +41,7 @@ public class ClientServiceImpl implements ClientService{
 
 	@Override
 	public boolean updateClient(ClientDTO dto) {
-		 Optional<Client> existingClient = clientRepository.findById(dto.getClientId());
+		 Optional<Client> existingClient = clientRepository.findByEmail(dto.getEmail());
 	        if (existingClient.isPresent()) {
 	            Client client = existingClient.get();
 	            client.setName(dto.getName());

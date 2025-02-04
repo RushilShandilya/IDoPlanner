@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS ServiceProviders(
     spId INT PRIMARY KEY AUTO_INCREMENT,
     spName VARCHAR(20),
     spEmail VARCHAR(20),
+    spPasswordHash VARCHAR(255),
     spNumber INT,
     serviceId INT,
 
