@@ -3,7 +3,7 @@ package com.cdac.idoplanner.controller.serviceprovider;
 import com.cdac.idoplanner.dto.ServiceProviderDTO;
 import com.cdac.idoplanner.entities.Service;
 import com.cdac.idoplanner.entities.ServiceProvider;
-import com.cdac.idoplanner.service.serviceprovider.ServiceProviderService;
+import com.cdac.idoplanner.service.serviceproviders.ServiceProviderService;
 import com.cdac.idoplanner.service.services.ServicesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
