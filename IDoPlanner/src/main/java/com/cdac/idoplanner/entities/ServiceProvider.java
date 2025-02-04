@@ -26,11 +26,12 @@ public class ServiceProvider{
 
     }
 
-    public ServiceProvider(String spName, String spEmail, Integer spNumber, Service service) {
+    public ServiceProvider(String spName, String spEmail, String spPasswordHash, Integer spNumber, Service service) {
         this.spName = spName;
         this.spEmail = spEmail;
         this.spNumber = spNumber;
         this.service = service;
+        this.spPasswordHash = spPasswordHash;
     }
 
     public Integer getSpId() {
