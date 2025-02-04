@@ -3,15 +3,15 @@ package com.cdac.idoplanner.dto;
 public class ServiceProviderDTO {
     String spName;
     String spEmail;
-    String spPhoneNumber;
+    Integer spPhoneNumber;
     String spPassword;
-    String serviceId;
+    Integer serviceId;
 
     public ServiceProviderDTO(){
 
     }
 
-    public ServiceProviderDTO(String spName, String spEmail, String spPhoneNumber, String spPassword,String serviceId) {
+    public ServiceProviderDTO(String spName, String spEmail, Integer spPhoneNumber, String spPassword,Integer serviceId) {
         this.spName = spName;
         this.spEmail = spEmail;
         this.spPhoneNumber = spPhoneNumber;
@@ -35,19 +35,19 @@ public class ServiceProviderDTO {
         this.spEmail = spEmail;
     }
 
-    public String getSpPhoneNumber() {
+    public Integer getSpPhoneNumber() {
         return spPhoneNumber;
     }
 
-    public void setSpPhoneNumber(String spPhoneNumber) {
+    public void setSpPhoneNumber(Integer spPhoneNumber) {
         this.spPhoneNumber = spPhoneNumber;
     }
 
-    public String getServiceId() {
+    public Integer getServiceId() {
         return serviceId;
     }
 
-    public void setServiceId(String serviceId) {
+    public void setServiceId(Integer serviceId) {
         this.serviceId = serviceId;
     }
 }
