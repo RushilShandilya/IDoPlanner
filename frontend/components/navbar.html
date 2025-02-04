@@ -1,0 +1,113 @@
+<!-- navbar.html -->
+<nav class="navbar">
+  <div class="logo">
+    <img
+      src="/frontend/assets/images/planning.png"
+      alt="IDo Planner Logo"
+      class="logo-img"
+    />
+  </div>
+  <ul class="nav-links">
+    <!-- Home Link -->
+    <li><a href="index.html">Home</a></li>
+
+    <!-- Conditional Links for Planner, Guest, Service Provider -->
+    <li id="plannerLink" class="role-link" style="display: none">
+      <a href="planner.html">Planner Dashboard</a>
+    </li>
+    <li id="guestLink" class="role-link" style="display: none">
+      <a href="guest.html">Guest Dashboard</a>
+    </li>
+    <li id="serviceProviderLink" class="role-link" style="display: none">
+      <a href="serviceProvider.html">Service Provider Dashboard</a>
+    </li>
+
+    <!-- Authentication Links -->
+    <li id="loginLink"><a href="login.html">Login</a></li>
+    <li id="registerLink"><a href="register.html">Register</a></li>
+    <li id="logoutLink" style="display: none">
+      <a href="#" onclick="logout()">Logout</a>
+    </li>
+  </ul>
+</nav>
+
+<script>
+  // Check if the user is logged in and set the role-based navigation
+  function setNavbarBasedOnRole() {
+    const userRole = sessionStorage.getItem("userRole");
+
+    if (userRole) {
+      document.getElementById("loginLink").style.display = "none";
+      document.getElementById("registerLink").style.display = "none";
+      document.getElementById("logoutLink").style.display = "block";
+
+      if (userRole === "Planner") {
+        document.getElementById("plannerLink").style.display = "block";
+      } else if (userRole === "Guest") {
+        document.getElementById("guestLink").style.display = "block";
+      } else if (userRole === "ServiceProvider") {
+        document.getElementById("serviceProviderLink").style.display = "block";
+      }
+    }
+  }
+
+  setNavbarBasedOnRole();
+
+  function logout() {
+    sessionStorage.removeItem("userRole");
+    location.reload();
+  }
+</script>
+
+<!-- <style>
+  /* Navbar styles */
+  .navbar {
+    background-color: #ff4081; /* Dark blue */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar .logo {
+    flex-grow: 1;
+  }
+
+  .navbar .logo-img {
+    width: 100px; /* Adjust based on your logo size */
+  }
+
+  .nav-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .nav-links li {
+    display: inline;
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .nav-links a:hover {
+    background-color: #2980b9; /* Lighter blue */
+    border-radius: 4px;
+  }
+
+  /* Navbar links for mobile responsiveness */
+  @media (max-width: 768px) {
+    .nav-links {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style> -->
