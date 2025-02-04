@@ -11,9 +11,9 @@ public class ServiceProvider{
 
     String spName;
 
-    @Column(unique=true)
+    @Column(unique=true , nullable = false)
     String spEmail;
-
+    @Column(nullable = false)
     Integer spNumber;
 
     String spPasswordHash;

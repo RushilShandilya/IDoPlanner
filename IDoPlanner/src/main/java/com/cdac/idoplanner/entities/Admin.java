@@ -12,7 +12,7 @@ public class Admin {
 
     @Column(name="name")
     String name;
-    @Column(name="email",unique=true)
+    @Column(name="email",unique=true , nullable = false)
     String email;
 
     @Column(name="passwordHash")
@@ -23,7 +23,6 @@ public class Admin {
     }
 
     public Admin(String name, String email, String passwordHash) {
-        this.adminId = adminId;
         this.name = name;
         this.email = email;
         this.passwordHash = passwordHash;
