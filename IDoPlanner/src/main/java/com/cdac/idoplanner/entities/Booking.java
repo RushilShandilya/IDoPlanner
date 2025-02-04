@@ -1,7 +1,7 @@
 package com.cdac.idoplanner.entities;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Bookings")
@@ -12,36 +12,33 @@ public class Booking {
     @Column(name = "bookingId")
     private Integer bookingId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "clientId", referencedColumnName = "clientId")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "clientId", referencedColumnName = "clientId", nullable = false)
     private Client client;
 
-    @Column(name = "weddingDate")
-    private LocalDate weddingDate;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "spId", referencedColumnName = "spId", nullable = false)
+    private ServiceProvider serviceProvider;
 
-    @Column(name = "weddingVenue", length = 255)
-    private String weddingVenue;
+    @Column(name = "bookingDate", nullable = false)
+    private LocalDateTime bookingDate;
 
-    @Column(name = "totalCost")
-    private Double totalCost;
+    @Column(name = "status", length = 20, nullable = false)
+    private String status; // e.g., "Pending", "Confirmed", "Completed"
 
-    @Column(name = "status", length = 50)
-    private String status;  // e.g., "Pending", "Confirmed", "Completed"
-
-    // You can add more attributes as needed like guests, wedding package, etc.
-
-    public Booking(){
-
+    // Default Constructor
+    public Booking() {
     }
 
-    public Booking(Client client, LocalDate weddingDate, String weddingVenue, Double totalCost, String status) {
+    // Parameterized Constructor
+    public Booking(Client client, ServiceProvider serviceProvider, LocalDateTime bookingDate, String status) {
         this.client = client;
-        this.weddingDate = weddingDate;
-        this.weddingVenue = weddingVenue;
-        this.totalCost = totalCost;
+        this.serviceProvider = serviceProvider;
+        this.bookingDate = bookingDate;
         this.status = status;
     }
 
+    // Getters and Setters
     public Integer getBookingId() {
         return bookingId;
     }
@@ -58,28 +55,20 @@ public class Booking {
         this.client = client;
     }
 
-    public LocalDate getWeddingDate() {
-        return weddingDate;
+    public ServiceProvider getServiceProvider() {
+        return serviceProvider;
     }
 
-    public void setWeddingDate(LocalDate weddingDate) {
-        this.weddingDate = weddingDate;
+    public void setServiceProvider(ServiceProvider serviceProvider) {
+        this.serviceProvider = serviceProvider;
     }
 
-    public String getWeddingVenue() {
-        return weddingVenue;
+    public LocalDateTime getBookingDate() {
+        return bookingDate;
     }
 
-    public void setWeddingVenue(String weddingVenue) {
-        this.weddingVenue = weddingVenue;
-    }
-
-    public Double getTotalCost() {
-        return totalCost;
-    }
-
-    public void setTotalCost(Double totalCost) {
-        this.totalCost = totalCost;
+    public void setBookingDate(LocalDateTime bookingDate) {
+        this.bookingDate = bookingDate;
     }
 
     public String getStatus() {

@@ -3,20 +3,23 @@ package com.cdac.idoplanner.dto;
 import java.time.LocalDateTime;
 
 public class BookingDTO {
-    private Integer clientId;
-    private Integer spId;
+
+    private Integer clientId; // Client ID
+    private Integer spId; // Service Provider ID
     private LocalDateTime bookingDate;
     private String status;
 
-    public BookingDTO(){}
+    public BookingDTO() {}
 
-    public BookingDTO(Integer clientId,Integer spId,LocalDateTime bookingDate,String status){
-        this.clientId=clientId;
-        this.spId=spId;
-        this.bookingDate=bookingDate;
+    // Parameterized Constructor
+    public BookingDTO(Integer clientId, Integer spId, LocalDateTime bookingDate, String status) {
+        this.clientId = clientId;
+        this.spId = spId;
+        this.bookingDate = bookingDate;
         this.status = status;
     }
 
+    // Getters and Setters
     public Integer getClientId() {
         return clientId;
     }
@@ -48,5 +51,5 @@ public class BookingDTO {
     public void setStatus(String status) {
         this.status = status;
     }
-}
 
+}
