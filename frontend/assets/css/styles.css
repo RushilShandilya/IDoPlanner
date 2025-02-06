@@ -1,10 +1,23 @@
 /* General styles */
+html,
 body {
   font-family: Arial, sans-serif;
   background-color: #f8f8f8;
+  height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow: hidden;
+}
+
+/* Dashboard container to allow scrolling */
+.dashboard-container {
+  width: 80%;
+  height: calc(100vh - 60px); /* Adjusted height (minus header/footer space) */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
 h1 {
@@ -41,9 +54,10 @@ footer {
   color: #ecf0f1;
   text-align: center;
   padding: 10px;
-  position: absolute;
+  position: fixed;
   width: 100%;
   bottom: 0;
+  left: 0;
 }
 
 /* Header styles */

@@ -104,3 +104,10 @@ h2 {
     margin-top: 5px;
   }
 }
+
+/* Allow scrolling in the main content */
+main {
+  height: calc(100vh - 60px); /* Adjusted height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-bottom: 20px; /* Space for footer */
+}
