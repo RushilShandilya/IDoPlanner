@@ -1,0 +1,62 @@
+/* General Dashboard Styles */
+.dashboard-container {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 20px;
+  color: #333;
+}
+
+.service-item,
+.booking-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.service-item button,
+.btn {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.service-item button:hover,
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.booking-item p {
+  font-size: 16px;
+}
+
+.empty-state {
+  font-size: 18px;
+  color: #777;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Allow scrolling in the main content */
+main {
+  height: calc(100vh - 60px); /* Adjusted height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-bottom: 20px; /* Space for footer */
+}

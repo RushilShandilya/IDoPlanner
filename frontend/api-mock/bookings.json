@@ -1,0 +1,26 @@
+[
+  {
+    "id": 201,
+    "userId": 1,
+    "serviceId": 101,
+    "providerId": 4,
+    "date": "2025-02-10",
+    "status": "Confirmed"
+  },
+  {
+    "id": 202,
+    "userId": 2,
+    "serviceId": 102,
+    "providerId": 5,
+    "date": "2025-02-15",
+    "status": "Pending"
+  },
+  {
+    "id": 203,
+    "userId": 1,
+    "serviceId": 103,
+    "providerId": 4,
+    "date": "2025-03-01",
+    "status": "Cancelled"
+  }
+]
