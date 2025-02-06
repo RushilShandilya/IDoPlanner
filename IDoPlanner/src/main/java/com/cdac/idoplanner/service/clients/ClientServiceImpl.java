@@ -24,7 +24,7 @@ public class ClientServiceImpl implements ClientService{
         client.setName(dto.getName());
         client.setEmail(dto.getEmail());
         client.setPhoneNumber(dto.getPhoneNumber());
-        client.setPasswordHash(dto.getPasswordHash());
+        client.setPasswordHash(dto.getPassword());
         
         clientRepository.save(client);
         return true;
@@ -47,7 +47,7 @@ public class ClientServiceImpl implements ClientService{
 	            client.setName(dto.getName());
 	            client.setEmail(dto.getEmail());
 	            client.setPhoneNumber(dto.getPhoneNumber());
-	            client.setPasswordHash(dto.getPasswordHash());
+	            client.setPasswordHash(dto.getPassword());
 	            clientRepository.save(client);
 	            return true;
 	        }

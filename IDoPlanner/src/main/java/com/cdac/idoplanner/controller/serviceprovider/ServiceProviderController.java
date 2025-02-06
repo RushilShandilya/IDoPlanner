@@ -8,6 +8,8 @@ import com.cdac.idoplanner.service.services.ServicesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 public class ServiceProviderController {
 
@@ -24,10 +26,11 @@ public class ServiceProviderController {
         sp.setSpEmail(spDTO.getSpEmail());
         sp.setSpName(spDTO.getSpName());
         sp.setSpNumber(spDTO.getSpPhoneNumber());
+        sp.setSpPasswordHash(spDTO.getSpPassword());
 
-        String serviceName = sService.getServiceName(spDTO.getServiceId());
+        Service existingService = sService.findById(spDTO.getServiceId());
 
-        sp.setService(new Service(serviceName));
+        sp.setService(existingService);
 
         spService.addServiceProvider(sp);
 

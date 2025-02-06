@@ -22,7 +22,7 @@ public class Client {
     private String email;
 
     @Column(name = "phoneNumber",unique=true , nullable = false)
-    private Long phoneNumber;
+    private Integer phoneNumber;
 
     @Column(name = "passwordHash", length = 255 , nullable=false)
     private String passwordHash;
@@ -31,7 +31,7 @@ public class Client {
 
 	}
 
-	public Client(String name, String email, Long phoneNumber, String passwordHash) {
+	public Client(String name, String email, Integer phoneNumber, String passwordHash) {
 		this.name = name;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
@@ -58,11 +58,11 @@ public class Client {
 		this.email = email;
 	}
 
-	public Long getPhoneNumber() {
+	public Integer getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(Long phoneNumber) {
+	public void setPhoneNumber(Integer phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 

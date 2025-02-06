@@ -1,9 +1,11 @@
 package com.cdac.idoplanner.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name="ServiceProviders")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class ServiceProvider{
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -16,9 +18,10 @@ public class ServiceProvider{
     @Column(nullable = false)
     Integer spNumber;
 
+    @Column(name="spPasswordHash")
     String spPasswordHash;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="serviceId")
     Service service;
 
@@ -56,6 +59,14 @@ public class ServiceProvider{
 
     public void setSpEmail(String spEmail) {
         this.spEmail = spEmail;
+    }
+
+    public String getSpPasswordHash() {
+        return spPasswordHash;
+    }
+
+    public void setSpPasswordHash(String spPasswordHash) {
+        this.spPasswordHash = spPasswordHash;
     }
 
     public Integer getSpNumber() {

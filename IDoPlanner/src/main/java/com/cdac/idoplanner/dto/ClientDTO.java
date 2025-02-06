@@ -3,16 +3,20 @@ package com.cdac.idoplanner.dto;
 public class ClientDTO {
 	private String name;
     private String email;
-    private Long phoneNumber;
-    private String passwordHash;
-    
-    public ClientDTO( String name, String email, Long phoneNumber, String passwordHash) {
+    private Integer phoneNumber;
+    private String password;
+
+	public ClientDTO(){
+
+	}
+
+    public ClientDTO( String name, String email, Integer phoneNumber, String password) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.passwordHash = passwordHash;
+        this.password = password;
     }
-    public ClientDTO( String name, String email, Long phoneNumber) {
+    public ClientDTO( String name, String email, Integer phoneNumber) {
        this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -30,22 +34,22 @@ public class ClientDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Long getPhoneNumber() {
+	public Integer getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(Long phoneNumber) {
+	public void setPhoneNumber(Integer phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public String getPasswordHash() {
-		return passwordHash;
+	public String getPassword() {
+		return password;
 	}
-	public void setPasswordHash(String passwordHash) {
-		this.passwordHash = passwordHash;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	@Override
 	public String toString() {
 		return "ClientDTO [name=" + name + ", email=" + email + ", phoneNumber="
-				+ phoneNumber + ", passwordHash=" + passwordHash + "]";
+				+ phoneNumber + ", password=" + password + "]";
 	}
     
 }

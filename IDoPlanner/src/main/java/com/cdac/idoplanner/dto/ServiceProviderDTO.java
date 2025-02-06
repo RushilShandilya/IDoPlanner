@@ -50,4 +50,10 @@ public class ServiceProviderDTO {
     public void setServiceId(Integer serviceId) {
         this.serviceId = serviceId;
     }
+
+    public String getSpPassword(){return spPassword;}
+
+    public void setSpPassword(String spPassword){
+        this.spPassword = spPassword;
+    }
 }
