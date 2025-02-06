@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - IDo Planner</title>
+    <link rel="stylesheet" href="/frontend/assets/css/styles.css" />
+    <link rel="stylesheet" href="/frontend/assets/css/admin.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <main>
+      <div class="admin-dashboard-container">
+        <h1>Admin Dashboard</h1>
+
+        <section id="client-management">
+          <h2>Client Management</h2>
+          <div id="client-list" class="client-list"></div>
+          <button id="add-client-btn" class="btn">Add New Client</button>
+        </section>
+
+        <section id="service-management">
+          <h2>Service Management</h2>
+          <div id="service-list" class="service-list"></div>
+          <button id="add-service-btn" class="btn">Add New Service</button>
+        </section>
+
+        <section id="booking-management">
+          <h2>Booking Management</h2>
+          <div id="booking-list" class="booking-list"></div>
+        </section>
+      </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="../../assets/js/admin.js"></script>
+    <script src="../../assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 401,
+    "bookingId": 201,
+    "userId": 1,
+    "serviceId": 101,
+    "rating": 5,
+    "comment": "Fantastic photography! Loved every picture."
+  },
+  {
+    "id": 402,
+    "bookingId": 202,
+    "userId": 2,
+    "serviceId": 102,
+    "rating": 4,
+    "comment": "Great food, but delivery was slightly delayed."
+  },
+  {
+    "id": 403,
+    "bookingId": 203,
+    "userId": 1,
+    "serviceId": 103,
+    "rating": 2,
+    "comment": "Decor was not as expected. Requested refund."
+  }
+]

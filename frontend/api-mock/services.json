@@ -1,0 +1,23 @@
+[
+  {
+    "id": 101,
+    "name": "Wedding Photography",
+    "description": "High-quality wedding photography with premium edits.",
+    "providerId": 4,
+    "price": 50000
+  },
+  {
+    "id": 102,
+    "name": "Catering Service",
+    "description": "Delicious food catering for your wedding with customizable menus.",
+    "providerId": 5,
+    "price": 75000
+  },
+  {
+    "id": 103,
+    "name": "Wedding Decor",
+    "description": "Elegant and thematic decorations for your special day.",
+    "providerId": 4,
+    "price": 40000
+  }
+]
