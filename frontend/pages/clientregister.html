@@ -1,0 +1,40 @@
+<!-- pages/register.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - IDo Planner</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/auth.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <main>
+      <h1>Client Registration</h1>
+      <form id="register-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <label for="number">Phone Number:</label>
+        <input type="number" id="phonenumber" name="phonenumber" required />
+
+        <button type="submit" class="btn">Register</button>
+      </form>
+
+      <p>Already have an account? <a href="clientlogin.html">Login</a></p>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="../assets/js/clientauth.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

@@ -54,7 +54,7 @@ public class ClientController {
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found.");
     }
-	@PostMapping("/authenticate")
+	@PostMapping("/login")
     public ResponseEntity<String> authenticateClient(@RequestParam String email, @RequestParam String passwordHash) {
         boolean isAuthenticated = clientService.authenticateClient(email, passwordHash);
         if (isAuthenticated) {
