@@ -55,12 +55,12 @@ public class ClientController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found.");
     }
 	@PostMapping("/login")
-    public ResponseEntity<String> authenticateClient(@RequestParam String email, @RequestParam String passwordHash) {
-        boolean isAuthenticated = clientService.authenticateClient(email, passwordHash);
-        if (isAuthenticated) {
-            return ResponseEntity.ok("Authentication successful.");
+    public ResponseEntity<ClientDTO> authenticateClient(@RequestParam String email, @RequestParam String passwordHash) {
+        ClientDTO clientDTO = clientService.findByEmailAndPassword(email,passwordHash);
+        if (clientDTO!=null) {
+            return ResponseEntity.ok(clientDTO);
         }
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password.");
+        return ResponseEntity.ok(null);
     }
 
 }
