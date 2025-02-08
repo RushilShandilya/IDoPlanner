@@ -24,8 +24,17 @@ public class AdminController {
     }
 
     @GetMapping("/admin/getAdmin")
-    public void getAdmin(@RequestParam Integer adminId){
-        Admin admin = adminService.getAdmin(adminId);
-        System.out.println(admin);
+    public Admin getAdmin(@RequestParam Integer adminId){
+        return adminService.getAdmin(adminId);
+    }
+
+    @PutMapping("/admin/updateAdmin")
+    public void updateAdmin(@RequestBody AdminDTO adminDTO){
+        adminService.updateAdmin(adminDTO);
+    }
+
+    @DeleteMapping("/admin/deleteAdmin")
+    public void deleteAdmin(@RequestParam Integer adminId){
+        adminService.deleteAdmin(adminId);
     }
 }
