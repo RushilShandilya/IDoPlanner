@@ -71,5 +71,17 @@ public class ClientServiceImpl implements ClientService{
 	        return client.isPresent() && client.get().getPasswordHash().equals(passwordHash);
 	    }
 
+	@Override
+	public ClientDTO findByEmailAndPassword(String email, String passwordHash) {
+		ClientDTO clientDTO = new ClientDTO();
+		Client client = clientRepository.findByEmailAndPassword(email,passwordHash);
+
+		clientDTO.setEmail(client.getEmail());
+		clientDTO.setName(client.getName());
+		clientDTO.setPhoneNumber(client.getPhoneNumber());
+
+		return clientDTO;
+	}
+
 
 }

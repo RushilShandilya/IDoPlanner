@@ -15,8 +15,9 @@ import com.cdac.idoplanner.dto.ClientDTO;
 	public  boolean deleteClient(int clientId);
 
 	public  boolean authenticateClient(String email, String passwordHash);
-	
-	
+
+
+	ClientDTO findByEmailAndPassword(String email, String passwordHash);
 	}
 
 
