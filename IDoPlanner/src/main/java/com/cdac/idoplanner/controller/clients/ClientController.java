@@ -3,8 +3,10 @@ package com.cdac.idoplanner.controller.clients;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.cassandra.CassandraProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.StreamingHttpOutputMessage;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -55,8 +57,8 @@ public class ClientController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found.");
     }
 	@PostMapping("/login")
-    public ResponseEntity<ClientDTO> authenticateClient(@RequestParam String email, @RequestParam String passwordHash) {
-        ClientDTO clientDTO = clientService.findByEmailAndPassword(email,passwordHash);
+    public ResponseEntity<ClientDTO> authenticateClient(@RequestBody ClientDTO rc) {
+        ClientDTO clientDTO = clientService.findByEmailAndPassword(rc.getEmail(), rc.getPassword());
         if (clientDTO!=null) {
             return ResponseEntity.ok(clientDTO);
         }
