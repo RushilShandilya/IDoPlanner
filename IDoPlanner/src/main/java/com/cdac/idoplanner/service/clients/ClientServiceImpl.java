@@ -74,7 +74,7 @@ public class ClientServiceImpl implements ClientService{
 	@Override
 	public ClientDTO findByEmailAndPassword(String email, String passwordHash) {
 		ClientDTO clientDTO = new ClientDTO();
-		Client client = clientRepository.findByEmailAndPassword(email,passwordHash);
+		Client client = clientRepository.findByEmail(email).orElse(null);
 
 		clientDTO.setEmail(client.getEmail());
 		clientDTO.setName(client.getName());
