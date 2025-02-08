@@ -2,6 +2,7 @@ package com.cdac.idoplanner.service.bookings;
 
 import com.cdac.idoplanner.entities.Booking;
 import com.cdac.idoplanner.repositories.BookingRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
