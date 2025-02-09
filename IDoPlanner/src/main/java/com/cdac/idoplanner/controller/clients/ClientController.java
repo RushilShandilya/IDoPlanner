@@ -1,6 +1,8 @@
 package com.cdac.idoplanner.controller.clients;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.cassandra.CassandraProperties;
@@ -28,8 +30,11 @@ public class ClientController {
 	ClientService clientService;
 	
 	@PostMapping("/register")
-	public String registerClient(@RequestBody ClientDTO clientDTO) {
-        return clientService.registerNewClient(clientDTO);
+	public ResponseEntity<Map<String,String>> registerClient(@RequestBody ClientDTO clientDTO) {
+        Map<String,String> hashMap = new HashMap<>();
+        hashMap.put("message",clientService.registerNewClient(clientDTO));
+
+        return ResponseEntity.ok(hashMap);
     }
 	@GetMapping("/all")
     public ResponseEntity<List<ClientDTO>> getAllClients() {

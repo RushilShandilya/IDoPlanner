@@ -21,6 +21,8 @@ public class ServiceProviderService {
     public String addServiceProvider(ServiceProviderDTO spDTO) {
         ServiceProvider sp = new ServiceProvider();
 
+        System.out.println(spDTO.getSpEmail());
+
         sp.setSpEmail(spDTO.getSpEmail());
         sp.setSpName(spDTO.getSpName());
         sp.setSpNumber(spDTO.getSpPhoneNumber());

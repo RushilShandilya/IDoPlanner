@@ -36,11 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (registerForm) {
         registerForm.addEventListener("submit", async (e) => {
             e.preventDefault();
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            const phoneNumber = document.getElementById("phonenumber").value;
-            const service = document.getElementById("service").value;
+            const spName = document.getElementById("name").value;
+            const spEmail = document.getElementById("email").value;
+            const spPassword = document.getElementById("password").value;
+            const spPhoneNumber = document.getElementById("phonenumber").value;
+            const spServiceName = document.getElementById("service").value;
 
             try {
                 const response = await fetch("http://localhost:8080/serviceProvider/register", {
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ name, email, password, phoneNumber , service }),
+                    body: JSON.stringify({ spName,spEmail,spPassword,spPhoneNumber,spServiceName }),
                 });
 
                 const data = await response.json();
