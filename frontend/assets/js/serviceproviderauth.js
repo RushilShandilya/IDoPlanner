@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (loginForm) {
         loginForm.addEventListener("submit", async (e) => {
             e.preventDefault();
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
+            const spEmail = document.getElementById("email").value;
+            const spPassword = document.getElementById("password").value;
 
             try {
                 const response = await fetch("http://localhost:8080/serviceProvider/login", {
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ email, password }),
+                    body: JSON.stringify({ spEmail,spPassword }),
                 });
 
                 const data = await response.json();

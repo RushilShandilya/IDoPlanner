@@ -27,8 +27,9 @@ public class ServiceProviderController {
         return ResponseEntity.ok(hashMap);
     }
 
-    @PostMapping("serviceProvider/getServiceProvider")
-    public ResponseEntity<ServiceProvider> getServiceProvider(@RequestBody ServiceProviderDTO spDTO){
+    @PostMapping("serviceProvider/login")
+    public ResponseEntity<ServiceProviderDTO> getServiceProvider(@RequestBody ServiceProviderDTO spDTO){
+        System.out.println(spDTO.getSpEmail() + " in controller");
         return ResponseEntity.ok(spService.getServiceProvider(spDTO.getSpEmail()));
     }
 }

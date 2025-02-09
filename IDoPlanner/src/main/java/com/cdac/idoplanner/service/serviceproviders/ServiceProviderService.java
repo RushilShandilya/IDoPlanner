@@ -34,8 +34,19 @@ public class ServiceProviderService {
         return (x!=null)?"Successful":"Unsuccessful";
     }
 
-    public ServiceProvider getServiceProvider(String email) {
-        return spRepository.findBySpEmail(email);
+    public ServiceProviderDTO getServiceProvider(String email) {
+
+        ServiceProvider sp = spRepository.findBySpEmail(email);
+
+        System.out.println(sp.getSpEmail());
+
+        ServiceProviderDTO dto = new ServiceProviderDTO();
+
+        dto.setSpName(sp.getSpName());
+        dto.setSpEmail(sp.getSpEmail());
+        dto.setSpPhoneNumber(sp.getSpNumber());
+
+        return dto;
     }
 
     public ServiceProvider getServiceProviderById(Integer spId){
