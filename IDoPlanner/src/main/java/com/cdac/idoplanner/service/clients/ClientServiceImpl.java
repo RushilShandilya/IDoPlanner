@@ -15,10 +15,10 @@ public class ClientServiceImpl implements ClientService{
     @Autowired
     ClientRepository clientRepository;
 	@Override
-	public boolean registerNewClient(ClientDTO dto) {
+	public String registerNewClient(ClientDTO dto) {
 		Optional<Client> existingClient = clientRepository.findByEmail(dto.getEmail());
         if (existingClient.isPresent()) {
-            return false; // Client already exists
+            return "Client already exist"; // Client already exists
         }
         Client client = new Client();
         client.setName(dto.getName());
@@ -27,7 +27,7 @@ public class ClientServiceImpl implements ClientService{
         client.setPasswordHash(dto.getPassword());
         
         clientRepository.save(client);
-        return true;
+        return "Client added successfully";
 	}
 
 	@Override

@@ -28,12 +28,8 @@ public class ClientController {
 	ClientService clientService;
 	
 	@PostMapping("/register")
-	public ResponseEntity<String> registerClient(@RequestBody ClientDTO clientDTO) {
-        boolean isRegistered = clientService.registerNewClient(clientDTO);
-        if (isRegistered) {
-            return ResponseEntity.status(HttpStatus.CREATED).body("Client registered successfully.");
-        }
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Client with this email already exists.");
+	public String registerClient(@RequestBody ClientDTO clientDTO) {
+        return clientService.registerNewClient(clientDTO);
     }
 	@GetMapping("/all")
     public ResponseEntity<List<ClientDTO>> getAllClients() {

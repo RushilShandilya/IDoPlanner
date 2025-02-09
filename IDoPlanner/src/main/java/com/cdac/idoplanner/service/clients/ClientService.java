@@ -6,7 +6,7 @@ import com.cdac.idoplanner.dto.ClientDTO;
 
 	public interface ClientService {
 
-	public boolean registerNewClient(ClientDTO dto);
+	public String registerNewClient(ClientDTO dto);
 
 	public List<ClientDTO> allClients();
 

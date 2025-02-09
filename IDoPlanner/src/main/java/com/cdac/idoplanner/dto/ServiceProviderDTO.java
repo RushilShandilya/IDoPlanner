@@ -5,18 +5,18 @@ public class ServiceProviderDTO {
     String spEmail;
     Integer spPhoneNumber;
     String spPassword;
-    Integer serviceId;
+    String serviceName;
 
     public ServiceProviderDTO(){
 
     }
 
-    public ServiceProviderDTO(String spName, String spEmail, Integer spPhoneNumber, String spPassword,Integer serviceId) {
+    public ServiceProviderDTO(String spName, String spEmail, Integer spPhoneNumber, String spPassword,String serviceName) {
         this.spName = spName;
         this.spEmail = spEmail;
         this.spPhoneNumber = spPhoneNumber;
         this.spPassword=spPassword;
-        this.serviceId = serviceId;
+        this.serviceName = serviceName;
     }
 
     public String getSpName() {
@@ -43,12 +43,12 @@ public class ServiceProviderDTO {
         this.spPhoneNumber = spPhoneNumber;
     }
 
-    public Integer getServiceId() {
-        return serviceId;
+    public String getServiceName() {
+        return serviceName;
     }
 
-    public void setServiceId(Integer serviceId) {
-        this.serviceId = serviceId;
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
     }
 
     public String getSpPassword(){return spPassword;}

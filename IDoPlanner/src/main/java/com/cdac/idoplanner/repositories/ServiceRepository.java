@@ -15,4 +15,6 @@ public interface ServiceRepository extends JpaRepository<Service,Integer> {
     String findServiceNameById(@Param("serviceId")Integer serviceId);
 
     Optional<Service> findById(Integer serviceId);
+
+    Service findByServiceName(String serviceName);
 }

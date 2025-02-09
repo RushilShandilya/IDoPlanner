@@ -4,7 +4,11 @@ import com.cdac.idoplanner.dto.AdminDTO;
 import com.cdac.idoplanner.entities.Admin;
 import com.cdac.idoplanner.service.admins.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 public class AdminController {
@@ -12,29 +16,27 @@ public class AdminController {
     @Autowired
     AdminService adminService;
 
-    @PostMapping("/admin/createAdmin")
-    public void createAdmin(@RequestBody AdminDTO adminDTO){
+    @PostMapping("/admin/register")
+    public ResponseEntity<Map<String,String>> createAdmin(@RequestBody AdminDTO adminDTO){
         Admin admin = new Admin();
 
         admin.setEmail(adminDTO.getEmail());
         admin.setName(adminDTO.getName());
         admin.setPasswordHash(adminDTO.getPassword());
 
-        adminService.createAdmin(admin);
+        Map<String,String> hashMap = new HashMap<>();
+        hashMap.put("message",adminService.createAdmin(admin));
+
+        return ResponseEntity.ok(hashMap);
     }
 
-    @GetMapping("/admin/getAdmin")
-    public Admin getAdmin(@RequestParam Integer adminId){
-        return adminService.getAdmin(adminId);
-    }
-
-    @PutMapping("/admin/updateAdmin")
-    public void updateAdmin(@RequestBody AdminDTO adminDTO){
-        adminService.updateAdmin(adminDTO);
+    @PostMapping("/admin/login")
+    public ResponseEntity<AdminDTO> getAdmin(@RequestBody AdminDTO dto){
+        return adminService.findByEmail(dto.getEmail());
     }
 
     @DeleteMapping("/admin/deleteAdmin")
-    public void deleteAdmin(@RequestParam Integer adminId){
-        adminService.deleteAdmin(adminId);
+    public ResponseEntity<String> deleteAdmin(@RequestBody AdminDTO dto){
+        return adminService.deleteByEmail(dto.getEmail());
     }
 }

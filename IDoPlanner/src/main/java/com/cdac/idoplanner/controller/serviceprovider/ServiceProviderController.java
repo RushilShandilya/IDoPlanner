@@ -6,8 +6,11 @@ import com.cdac.idoplanner.entities.ServiceProvider;
 import com.cdac.idoplanner.service.serviceproviders.ServiceProviderService;
 import com.cdac.idoplanner.service.services.ServicesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -16,28 +19,16 @@ public class ServiceProviderController {
     @Autowired
     ServiceProviderService spService;
 
-    @Autowired
-    ServicesService sService;
+    @PostMapping("serviceProvider/register")
+    public ResponseEntity<Map<String,String>> addServiceProvider(@RequestBody ServiceProviderDTO spDTO){
+        Map<String , String> hashMap = new HashMap<>();
+        hashMap.put("message", spService.addServiceProvider(spDTO));
 
-    @PostMapping("serviceProvider/addServiceProvider")
-    public void addServiceProvider(@RequestBody ServiceProviderDTO spDTO){
-        ServiceProvider sp = new ServiceProvider();
-
-        sp.setSpEmail(spDTO.getSpEmail());
-        sp.setSpName(spDTO.getSpName());
-        sp.setSpNumber(spDTO.getSpPhoneNumber());
-        sp.setSpPasswordHash(spDTO.getSpPassword());
-
-        Service existingService = sService.findById(spDTO.getServiceId());
-
-        sp.setService(existingService);
-
-        spService.addServiceProvider(sp);
-
+        return ResponseEntity.ok(hashMap);
     }
 
-    @GetMapping("serviceProvider/getServiceProvider")
-    public ServiceProvider getServiceProviderById(@RequestParam Integer spId){
-        return spService.getServiceProviderById(spId);
+    @PostMapping("serviceProvider/getServiceProvider")
+    public ResponseEntity<ServiceProvider> getServiceProvider(@RequestBody ServiceProviderDTO spDTO){
+        return ResponseEntity.ok(spService.getServiceProvider(spDTO.getSpEmail()));
     }
 }
