@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -30,7 +31,11 @@ public class ServiceProviderController {
 
     @PostMapping("serviceProvider/login")
     public ResponseEntity<ServiceProviderDTO> getServiceProvider(@RequestBody ServiceProviderDTO spDTO){
-        System.out.println(spDTO.getSpEmail() + " in controller");
         return ResponseEntity.ok(spService.getServiceProvider(spDTO.getSpEmail()));
+    }
+
+    @GetMapping("serviceProvider/all")
+    public ResponseEntity<List<ServiceProviderDTO>> getAllServiceProvider(){
+        return ResponseEntity.ok(spService.getAllServiceProvider());
     }
 }

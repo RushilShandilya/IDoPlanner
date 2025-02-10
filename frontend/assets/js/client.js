@@ -1,27 +1,27 @@
 document.addEventListener("DOMContentLoaded", async () => {
   // Fetch user data from localStorage
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (!user || user.role !== "client") {
-    window.location.href = "login.html"; // Redirect to login if not logged in as client
-  }
+  //const user = JSON.parse(localStorage.getItem("user"));
+  //if (!user || user.role !== "client") {
+    //window.location.href = "clientlogin.html"; // Redirect to login if not logged in as client
+  //}
 
   // Set client name
-  document.getElementById("client-name").textContent = user.name;
+  //document.getElementById("client-name").textContent = user.name;
 
   // Fetch services data (mocked API call to services.json)
-  try {
-    const response = await fetch("../../api-mock/services.json");
+  try{
+    const response = await fetch("http://localhost:8080/serviceProvider/all");
     const services = await response.json();
     displayServices(services);
-  } catch (error) {
+  }catch (error){
     console.error("Error fetching services:", error);
   }
 
   // Fetch client's bookings (mocked API call to bookings.json)
   try {
-    const response = await fetch("../../api-mock/bookings.json");
+    const response = await fetch("http://localhost:8080/bookings/all");
     const bookings = await response.json();
-    displayBookings(bookings, user.id);
+    //displayBookings(bookings, user.id);
   } catch (error) {
     console.error("Error fetching bookings:", error);
   }
@@ -35,6 +35,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 // Display services in the client dashboard
 function displayServices(services) {
+  console.log(services);
+
   const servicesList = document.getElementById("services-list");
   servicesList.innerHTML = ""; // Clear any existing content
 
@@ -43,10 +45,10 @@ function displayServices(services) {
     serviceItem.classList.add("service-item");
 
     const serviceTitle = document.createElement("h3");
-    serviceTitle.textContent = service.name;
+    serviceTitle.textContent = service.spName;
 
     const serviceDescription = document.createElement("p");
-    serviceDescription.textContent = service.description;
+    serviceDescription.textContent = service.spPhoneNumber;
 
     const bookButton = document.createElement("button");
     bookButton.textContent = "Book Service";

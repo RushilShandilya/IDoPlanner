@@ -1,10 +1,7 @@
 package com.cdac.idoplanner.entities;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "Clients")
@@ -26,6 +23,12 @@ public class Client {
 
     @Column(name = "passwordHash", length = 255 , nullable=false)
     private String passwordHash;
+
+	@OneToMany(
+			cascade=CascadeType.ALL
+	)
+	@Column(name="bookingId")
+	private List<Booking> bookings;
 
 	public Client(){
 

@@ -25,6 +25,7 @@ public class ServiceProvider{
     @JoinColumn(name="serviceId")
     Service service;
 
+
     public ServiceProvider(){
 
     }

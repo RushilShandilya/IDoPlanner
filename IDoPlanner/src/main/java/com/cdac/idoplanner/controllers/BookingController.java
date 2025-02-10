@@ -57,7 +57,7 @@ public class BookingController {
     }
 
     // Get all bookings
-    @GetMapping("/getAllBookings")
+    @GetMapping("/all")
     public List<Booking> getAllBookings() {
         return bookingService.getAllBookings();  // Retrieve all bookings
     }

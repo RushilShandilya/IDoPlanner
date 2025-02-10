@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.getElementById("login-form");
-    const registerForm = document.getElementById("register-form");
+    const loginForm = document.getElementById("client-login-form");
+    const registerForm = document.getElementById("client-register-form");
   
     if (loginForm) {
       loginForm.addEventListener("submit", async (e) => {
@@ -14,14 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({email, password}),
           });
   
           const data = await response.json();
-  
+          console.log(data);
+
           if (response.ok) {
             //localStorage.setItem("token", data.token); // Store JWT token
-            localStorage.setItem("user", JSON.stringify(data.user)); // Store user details
+            localStorage.setItem("user",data); // Store user details
             window.location.href = "client/dashboard.html"; // Redirect to client dashboard
           } else {
             alert(data.message || "Login failed. Please check your credentials.");

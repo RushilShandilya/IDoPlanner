@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class ServiceProviderService {
 
@@ -38,8 +41,6 @@ public class ServiceProviderService {
 
         ServiceProvider sp = spRepository.findBySpEmail(email);
 
-        System.out.println(sp.getSpEmail());
-
         ServiceProviderDTO dto = new ServiceProviderDTO();
 
         dto.setSpName(sp.getSpName());
@@ -51,5 +52,22 @@ public class ServiceProviderService {
 
     public ServiceProvider getServiceProviderById(Integer spId){
         return spRepository.findBySpId(spId);
+    }
+
+    public List<ServiceProviderDTO> getAllServiceProvider() {
+        List<ServiceProvider> serviceProviders =  spRepository.findAll();
+        List<ServiceProviderDTO> returnList = new ArrayList<>();
+
+        for(ServiceProvider sp : serviceProviders){
+            ServiceProviderDTO spDTO = new ServiceProviderDTO();
+
+            spDTO.setSpName(sp.getSpName());
+            spDTO.setSpEmail(sp.getSpEmail());
+            spDTO.setSpPhoneNumber(sp.getSpNumber());
+            spDTO.setServiceName(sp.getService().getServiceName());
+
+            returnList.add(spDTO);
+        }
+        return returnList;
     }
 }
