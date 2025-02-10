@@ -1,10 +1,11 @@
-package com.cdac.idoplanner.controller.serviceprovider;
+package com.cdac.idoplanner.controllers;
 
 import com.cdac.idoplanner.dto.ServiceProviderDTO;
 import com.cdac.idoplanner.entities.Service;
 import com.cdac.idoplanner.entities.ServiceProvider;
-import com.cdac.idoplanner.service.serviceproviders.ServiceProviderService;
-import com.cdac.idoplanner.service.services.ServicesService;
+import com.cdac.idoplanner.services.ServiceProviderService;
+import com.cdac.idoplanner.services.ServicesService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

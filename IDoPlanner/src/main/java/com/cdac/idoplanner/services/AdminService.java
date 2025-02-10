@@ -1,4 +1,4 @@
-package com.cdac.idoplanner.service.admins;
+package com.cdac.idoplanner.services;
 
 import com.cdac.idoplanner.dto.AdminDTO;
 import com.cdac.idoplanner.entities.Admin;

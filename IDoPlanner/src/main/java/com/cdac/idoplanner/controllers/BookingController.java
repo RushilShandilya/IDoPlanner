@@ -1,12 +1,13 @@
-package com.cdac.idoplanner.controller.bookings;
+package com.cdac.idoplanner.controllers;
 
 import com.cdac.idoplanner.dto.BookingDTO;
 import com.cdac.idoplanner.entities.Booking;
 import com.cdac.idoplanner.entities.Client;
 import com.cdac.idoplanner.entities.ServiceProvider;
 import com.cdac.idoplanner.repositories.ClientRepository;  // Import ClientRepository
-import com.cdac.idoplanner.service.bookings.BookingService;
-import com.cdac.idoplanner.service.serviceproviders.ServiceProviderService;
+import com.cdac.idoplanner.services.BookingService;
+import com.cdac.idoplanner.services.ServiceProviderService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

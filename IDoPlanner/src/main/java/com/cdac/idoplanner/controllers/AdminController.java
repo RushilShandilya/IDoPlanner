@@ -1,8 +1,9 @@
-package com.cdac.idoplanner.controller.admins;
+package com.cdac.idoplanner.controllers;
 
 import com.cdac.idoplanner.dto.AdminDTO;
 import com.cdac.idoplanner.entities.Admin;
-import com.cdac.idoplanner.service.admins.AdminService;
+import com.cdac.idoplanner.services.AdminService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

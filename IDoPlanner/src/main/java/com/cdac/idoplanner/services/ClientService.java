@@ -1,4 +1,4 @@
-package com.cdac.idoplanner.service.clients;
+package com.cdac.idoplanner.services;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.cdac.idoplanner.service.serviceproviders;
+package com.cdac.idoplanner.services;
 
 import com.cdac.idoplanner.dto.ServiceProviderDTO;
 import com.cdac.idoplanner.entities.ServiceProvider;

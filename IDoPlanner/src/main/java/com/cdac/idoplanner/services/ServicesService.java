@@ -1,4 +1,4 @@
-package com.cdac.idoplanner.service.services;
+package com.cdac.idoplanner.services;
 
 import com.cdac.idoplanner.repositories.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;

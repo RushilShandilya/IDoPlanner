@@ -1,4 +1,4 @@
-package com.cdac.idoplanner.controller.clients;
+package com.cdac.idoplanner.controllers;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cdac.idoplanner.dto.ClientDTO;
-import com.cdac.idoplanner.service.clients.ClientService;
+import com.cdac.idoplanner.services.ClientService;
 
 @RestController
 @RequestMapping("/clients")

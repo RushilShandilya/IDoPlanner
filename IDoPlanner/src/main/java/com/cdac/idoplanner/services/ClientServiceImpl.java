@@ -1,10 +1,11 @@
-package com.cdac.idoplanner.service.clients;
+package com.cdac.idoplanner.services;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.cdac.idoplanner.dto.ClientDTO;
@@ -14,6 +15,9 @@ import com.cdac.idoplanner.repositories.ClientRepository;
 public class ClientServiceImpl implements ClientService{
     @Autowired
     ClientRepository clientRepository;
+    
+    @Autowired 
+    PasswordEncoder passwordEncoder;
 	@Override
 	public String registerNewClient(ClientDTO dto) {
 		Optional<Client> existingClient = clientRepository.findByEmail(dto.getEmail());
@@ -24,7 +28,7 @@ public class ClientServiceImpl implements ClientService{
         client.setName(dto.getName());
         client.setEmail(dto.getEmail());
         client.setPhoneNumber(dto.getPhoneNumber());
-        client.setPasswordHash(dto.getPassword());
+        client.setPasswordHash(passwordEncoder.encode(dto.getPassword()));
         
         clientRepository.save(client);
         return "Client added successfully";
@@ -48,6 +52,10 @@ public class ClientServiceImpl implements ClientService{
 	            client.setEmail(dto.getEmail());
 	            client.setPhoneNumber(dto.getPhoneNumber());
 	            client.setPasswordHash(dto.getPassword());
+	            
+	            if(dto.getPassword() != null && !dto.getPassword().isEmpty()) {
+	            	client.setPasswordHash(passwordEncoder.encode(dto.getPassword()));
+	            }
 	            clientRepository.save(client);
 	            return true;
 	        }
@@ -68,7 +76,7 @@ public class ClientServiceImpl implements ClientService{
 	@Override
 	public boolean authenticateClient(String email, String passwordHash) {
 		 Optional<Client> client = clientRepository.findByEmail(email);
-	        return client.isPresent() && client.get().getPasswordHash().equals(passwordHash);
+	        return client.isPresent() && passwordEncoder.matches(passwordHash,client.get().getPasswordHash());
 	    }
 
 	@Override
