@@ -52,8 +52,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Load header and footer components and ensure both are loaded before proceeding
   Promise.all([
-    loadComponent("header", "/frontend/components/header.html"),
-    loadComponent("footer", "/frontend/components/footer.html"),
+    loadComponent("header", "components/header.html"),
+    loadComponent("footer", "components/footer.html"),
   ])
     .then(() => {
       // After both components are loaded, check login status
@@ -105,5 +105,5 @@ async function loadComponent(id, url) {
 // Handle logout (clear user data from localStorage and redirect to login page)
 function logout() {
   localStorage.removeItem("user"); // Remove user from localStorage
-  window.location.href = "/frontend/pages/login.html"; // Redirect to login page
+  window.location.href = "pages/login.html"; // Redirect to login page
 }
