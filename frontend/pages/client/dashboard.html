@@ -4,29 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Client Dashboard - IDo Planner</title>
-    <link rel="stylesheet" href="/frontend/assets/css/styles.css" />
-    <link rel="stylesheet" href="/frontend/assets/css/client.css" />
+    <meta name="description" content="Manage your wedding planning, browse services, and track bookings.">
+    <link rel="stylesheet" href="/assets/css/styles.css" />
   </head>
   <body>
     <div id="header"></div>
 
     <main>
       <div class="dashboard-container">
-        <h1>Welcome, <span id="client-name"></span></h1>
+        <div style="text-align: center; margin-bottom: 40px;">
+          <h1>Welcome, <span id="client-name">Client</span>! 💍</h1>
+          <p>Let's make your dream wedding come true</p>
+        </div>
 
-        <h2>Available Services</h2>
-        <div id="services-list" class="service-list"></div>
+        <section style="margin-bottom: 50px;">
+          <h2 style="color: #8b0043; margin-bottom: 20px;">🎉 Available Services</h2>
+          <div id="services-list"></div>
+        </section>
 
-        <h2>Your Bookings</h2>
-        <div id="bookings-list" class="booking-list"></div>
+        <section>
+          <h2 style="color: #8b0043; margin-bottom: 20px;">📋 Your Bookings</h2>
+          <div id="bookings-list"></div>
+        </section>
 
-        <!-- <button id="logout-btn" class="btn">Logout</button> -->
+        <div style="text-align: center; margin-top: 40px;">
+          <button id="logout-btn" class="btn secondary">Logout</button>
+        </div>
       </div>
     </main>
 
     <div id="footer"></div>
 
-    <script src="../../assets/js/client.js"></script>
-    <script src="../../assets/js/main.js"></script>
+    <script src="/assets/js/client.js"></script>
+    <script src="/assets/js/main.js"></script>
   </body>
 </html>
